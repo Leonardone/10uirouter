@@ -1,15 +1,39 @@
 angular.module('app').config(function(
     $stateProvider){
     $stateProvider.state('home', {
-         url:'/home',
-        templateUrl: 'home/home.template.html'
+        url:'/home',
+        templateUrl: 'home/home.template.html',
+        controller:'HomeCtrl',
+        data:{
+            titolo:'questa è la home page'
+        }
        
     }).state('contatti',{
         url:'/contatti',
-        templateUrl:'contatti/contatti.template.html'
+        templateUrl:'contatti/contatti.template.html',
+         controller:'ContattiCtrl',
+        data:{
+            titolo:'questa è la pagina contatti',
+            citta:'Ancona',
+            via:'via di vie',
+            cap:02515,
+
+        },
+        resolve:{
+           contatti: function(ContattiSrv, $timeout){
+            return $timeout(function(){
+                    return ContattiSrv.getContatti()
+            }, 2000)     
+
+        }
+        } 
     
     }).state('chisiamo',{
         url:'/chisiamo',
-        templateUrl:'chisiamo/chisiamo.template.html'
+        templateUrl:'chisiamo/chisiamo.template.html',
+         controller:'ChisiamoCtrl',
+        data:{
+            titolo:'questa è la pagina di chi siamo'
+        }
     })
 });
