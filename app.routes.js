@@ -8,7 +8,13 @@ angular.module('app').config(function(
             titolo:'questa è la home page'
         }
        
-    }).state('contatti',{
+    }).state('home.dettaglio',{
+        url:'/dettaglio:id',
+        templateUrl:'home/dettaglio.template.html',
+        controller:'dettaglioCtrl'
+    })
+    
+    .state('contatti',{
         url:'/contatti',
         templateUrl:'contatti/contatti.template.html',
          controller:'ContattiCtrl',
@@ -29,6 +35,7 @@ angular.module('app').config(function(
         } 
     
     }).state('chisiamo',{
+        abstract:true,
         url:'/chisiamo',
         templateUrl:'chisiamo/chisiamo.template.html',
          controller:'ChisiamoCtrl',
@@ -36,4 +43,13 @@ angular.module('app').config(function(
             titolo:'questa è la pagina di chi siamo'
         }
     })
+    .state('chisiamo.about', {
+        url:'/about',
+        templateUrl:'chisiamo/chisiamo.about.html',
+
+
+
+    }).state('chisiamo.mission', {
+        url:'/mission',
+        templateUrl:'chisiamo/chisiamo.mission.html',})
 });

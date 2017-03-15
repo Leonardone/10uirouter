@@ -1,6 +1,7 @@
 angular.module('app').service('ContattiSrv', function(){
     var contatti={
         citta:"Ancona",
+        cap: 02515,
         via:"Via delle vie",
         nazione:"Italia"
     };
